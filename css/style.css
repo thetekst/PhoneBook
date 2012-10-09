@@ -1,0 +1,88 @@
+@import url("reset.css"); /*импортируемые файлы ОБЯЗАТЕЛЬНО!!! должны прописаны в самом верху*/
+@charset "utf-8";
+/* CSS Document */
+
+.myClock
+{
+	color: red;
+	background-color: yellow;
+}
+
+strong {
+	font-weight: bold !important;
+}
+
+body {
+	background-image: url(../images/background.jpg);
+	background-repeat: repeat;
+}
+
+#wrapper {
+	width: 900px;
+	padding: 10px;
+	margin: 0 auto;
+	outline: 1px solid #000; /* #33FF00 #00FFFF для удобства верстки показывает рамку элемента */
+}
+
+header {
+	/* для фиксированной ширины */
+	background-image: url(../images/header.jpg);
+	background-repeat: repeat-x;
+	background-color:#fff040;
+	height:82px;
+	text-align: center;
+
+	/* для "резиновой" ширины
+	width: expression((documentElement.clientWidth||document.body.clientWidth)<995?'1000px':'');
+	min-width: 1000px; */
+}
+#search {
+	width: 100%;
+}
+
+form#search-form {
+	float: right;
+	width: 310px;
+}
+
+#pic {
+	position:fixed;
+	/*картинка как-бы приподнимается над всем контентом
+	//есть у него еще свойства top | right | left | bottom*/
+	top:0;
+	left:0;
+}
+
+div.container {
+}
+
+div.text {
+	width:100%;
+	min-height:63px;
+	background: #F4F3F1;
+	margin:10px 0;
+	border: 1px solid #aca7a4;
+}
+
+img.img-block {
+	/*height:43px;*/
+	float:left;
+	clear: left;
+	width:43px;
+	/*border:1px #000 solid;*/
+	padding:10px;
+	
+	
+}
+
+div.text p {
+	padding:10px 0 0 0;
+	
+}
+
+.block-paragraph {
+}
+
+footer {
+	background-color:#fff040;
+}

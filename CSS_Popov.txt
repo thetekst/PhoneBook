@@ -1,0 +1,958 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+------------------------------
+Базовый курс CSS
+------------------------------
+
+//01. Установка расширений Web Developer, Firebug
+
+//03. Подключаем 3 базовых селектора
+
+index.html
+---
+<head>
+<title></title>
+<link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+style.css
+---
+//меняем цвет всех абзацев
+1)p {
+color:#404040;
+}
+2)#header {
+color:#404040; //по id
+}
+3).new {
+color:#404040; //селектор классов <li class="new"></li>
+}
+
+04. Групповые селекторы
+Для абзацев
+Для заголовков h4
+Для id
+<dl id="myList">
+<dt>Предложение 1</dt>
+<dd>Описание 1<dd>
+<dt>Предложение 2</dt>
+<dd>Описание 2<dd>
+</dl>
+
+p, h4, #myList {
+}
+
+05. Селекторы потомков
+
+Все теги внутри тега <html></html> являются его потомками
+для тега <body></body> - это теги внутри его
+для тега <head></head> - соответственно
+
+
+ul - родитель
+li - потомок
+
+ul li {
+}
+
+меняем внешность ссылок внутри абзаца
+p a {
+}
+
+<div id="ht">
+<p><a href=""></a></p>
+</div>
+
+#ht p a {
+}
+
+06. Псевдоселекторы ссылок
+
+важна последовательность: a:link, a:visited, a:hover, a:active
+
+a:link {
+}
+a:visited { //посещенная
+}
+a:hover { //при наведении
+}
+a:active { //при щелчке
+}
+
+чтобы указать на все:
+a {
+}
+
+07. Семейство шрифтов
+
+p {
+font-family: Verdana, Tahoma;
+}
+
+p {
+font-family: 
+sans-serif шрифты без засечками это Verdana, Tahoma;
+serif с засечками
+monospace все буквы занимают одну и туже ширину
+}
+
+шрифты состоящие из нескольких слов
+"ourier New" пишем в кавычках
+
+08. Размер шрифта
+
+font-size:
+% - проценты - базовый размер шрифта - 100%
+em - из печати - базовый размер шрифта - 1em
+px - пиксели - базовый размер шрифта - 16px
+pt - пункты - базовый размер шрифта - 12pt
+medium, small, large... - ключевые слова - базовый 
+							размер шрифта - medium
+
+09. Жирный и курсивный текст
+
+курсив - font-style:italic;
+
+вставляем в <span class=""></span> или в <p class=""></p>
+
+жирный - font-weight:normal | bold | 100 - 900;
+
+10. Декор
+
+Подчеркивание сверху, снизу и перечеркивание текста
+
+text-decoration:underline; - подчеркиваем
+text-decoration:overline; - подчеркивание над текстом
+text-decoration:line-through; - перечеркивание
+
+чтобы избавиться от линии подчеркивающую ссылку:
+a {
+text-decoration:none;
+}
+
+11. Выравнивание и красная строка
+
+text-align:left | right | justify;
+
+Задание красной строки (отступ от левого края)
+text-indent:20px;
+
+12. Высота строки, расстояние
+
+межстрочный интервал
+line-height:normal | 20px;
+и с помощью множителя от текущего размера шрифта
+line-height:1.5; это размер шрифта font-size умноженное на 1.5
+
+интервал между словами
+word-spacing: normal | 20px;
+
+интервал между буквами
+letter-spacing:normal | 20px;
+
+изменение регистра букв
+text-transform:uppercase | lowercase | capitalize;
+
+13. Сокращенная запись
+
+font-size, font-family, font-...
+
+полная запись
+.new {
+font-style:italic;
+font-weight:bold;
+font-size:16px;
+font-family:Tahoma;
+}
+
+сокращенная запись. Обязательно соблюдаем последовательность
+font-style font-variant font-weight font-size(указываем обязательно) 
+line-height font-family(указываем обязательно)
+font: italic bold 16px Tahoma;
+font: italic bold 16px/20px Tahoma; /указываем line-height 20px
+
+14. Рамки
+
+border-width: 2px;
+border-style: solid;
+border-color: #FAA;
+
+или
+
+border-top-width: 2px;
+border-top-style: solid;
+border-top-color: #FAA;
+
+сокращенная запись border:
+border-width border-style color
+border: 2px solid #FAA;
+
+//задаем пунктирное нижнее подчеркивание для ссылок
+a {
+text-decoration:none;
+border-bottom: 1px; dashed #c32017;
+color:#333;
+}
+
+
+15. Работа со списками
+
+внешний вид маркров
+ul {
+list-style-type:none | upper-roman | и т.д. //внешний вид
+list-style-image: url(../images/arrow.png); //маркер в виде изображений
+...
+}
+//расположение маркера
+для этого прописываем в:
+ul li{
+border:1px solid #ccc;
+}
+
+возвращаемся в:
+ul {
+list-style-position:inside; //маркер внутри элемента
+}
+
+сокращенный вариант записи:
+list-style-type list-style-position list-style-image
+list-style: upper-roman inside url(../images/arrow.png);
+
+16. Наследование
+
+мы можем все элементы сайта сделать единым шрифтом, если у нас указаны разные
+Эта система построена на системе потомков
+body {
+font: 14px Tahoma;
+color:#00065b
+}
+
+все элементы должны унаследовать это свойство
+
+исключня:
+заголовки <h1>... не наследуют размеры
+ссылки не наследуют цвет
+наследуются не все свойства (inherited)
+
+17. Каскадность и приоритетность
+
+если цвет задан в body и в ul разный, то li будет иметь цвет от ближайшего родителя.
+Т.о. наследуется цвет от ul
+
+В этом можно убедиться еще одним способом, щелкнув на теге li в плагине firebug
+и там можно будет увидить в body перечеркнутый тег color и действующий тег color в ul
+Здесь же можно кликнуть на тег color чтобы отключить цвет и увидеть результат
+
+Приоритетность селекторов:
+Встроенный стиль в тег //наибольший приоритет
+id селектор
+селектор классов
+селектор тегов //наименьший приоритет
+
+18. Блочная модель, margin и padding
+
+19. Ширина и высота блока, выравнивание
+
+width:550px - Ширина содержимого
+height:300px - Высота содержимого
+если текст вылазит за пределы высоты 330px
+то нужно указать тег overflow: 
+hidden (спрятать то что не поместилось)
+auto(добавляется полоса прокрутки)
+scroll (полоса прокрутки принудительно даже если контент помещается)
+visible (по умолчанию - все равно показывать, даже если не влезает)
+
+выравнивание блока
+margin: 20px auto;
+
+20. Конфликты полей
+
+Если два элемента сталкиваются полями
+margin-bottom:30px; //1-й элемент
+и
+margin-top:20px; //2-й элемент
+Браузер не складывает величины, а берет большую
+
+можно проверить это в firebug
+
+Вложенные блоки
+p вложен в блок div
+как и в предыдущем случае с теми же настройками ничего не поменяется
+30px и 20px
+Браузер не складывает величины, а берет большую
+В отличие от первого случая, в этом можно избавить от конфилкта добавив border
+для div и p
+Теперь будет все верно
+Лучше делать внутренние отступы - padding
+
+21. Блочные и встроенные элементы
+
+блочный элемент div всегда начинается с новой строки
+встроенный элемент span находится внутри блокового элемента
+встроенный элемент может хранить в себе подобные элементы
+span содержит span
+у втроенных элементов нижние и верхнии поля отсутствуют
+т.е. нет margin-top/bottom и padding-top/bottom
+
+Переведем теги li во встроенные элементы
+Все li буду построены в одну строку друг за другом, а не с новой строки
+ol li {
+display:inline; //встроенный
+border:1px solid #333;
+}
+используется для горизонтальной навигации сайта
+
+Обратная ситуация inline в блочный, например в span
+display:block;
+
+22. Фоновый цвет и изображение. Введение
+
+каждый блок может иметь фоновый цвет
+body {
+background-color:#f6f6f6;
+}
+
+распространяется на содержимое и на внутренние отступы
+не включая border и margin!
+
+для удобства верстки, чтобы контур не исчезал,
+нужно задать свойство outline
+outline:1px solid;
+
+background-image: url(../images/bg.jpg);
+
+text-align:center; //выравниваем текст
+
+23. Повтор фонового изображения
+
+background-repeat:no-repeat | repeat-x | repeat-y | repeat;
+
+background-color:#fff;
+
+24. Позиционирование фонового изображения
+
+по умолчанию это левый верхний уровень
+
+ставим картинку на фон блока h1, так как в div уже есть картинка
+
+background-position: right(по горизонтали) center(по вертикали);
+или так:
+background-position: 104px 187px;
+
+25. Фиксация фона
+
+нам нужен елемент, который всегда отображался слева, даже когда мы
+прогручивали ползунок страницы
+
+так как все наши элементы body, div, h1 уже имеют фоновые изображения, то
+мы не можем добавить второе к любому из них. В CSS3 такая возможность уже есть
+Можно задавать несколько фоновый изображений
+
+Для CSS2 мы просто добавим еще один элемент div
+<body>
+	<div id="wrapper"> //обвертка
+		<div id="main">
+			<h1></h1>
+		</div>
+	</div>
+</body>
+и таких дивов можно ставить несколько
+
+#wrapper {
+outline:1px solid #000;
+background-image:url(../image/tel.jpg);
+background-repeat:no-repeat;
+background-position: 0 120px;
+background-attachment:fixed; /*фоновое изображение всегда будет на одном месте
+не смотря на то, что мы будем прокручивать страницу вверх/винз*/
+
+/*теперь свойство background-position позиционируется не относительно блока wrapper, 
+а относительно окна браузера*/
+}
+
+26. Краткая запись фоновых свойств
+
+background:
+background-color background-image background-repeat background-attachment
+																background-position
+background: url(../image/tel.jpg) no-repeat fixed 0 120px;
+
+27. CSS и таблицы
+
+делаем рамку таблице и ячейкам
+table, td, th {
+border:1px solid #ccc;
+//выровняем текст по центру
+text-align:center;
+}
+
+увеличим ширину
+table {
+width:700px;
+//выравниваем таблицу
+margin: 0 auto;
+//убираем разделительные линии. оставляем одну
+border-collapse:collapse;
+}
+
+задаем высоту ячейк
+td, th {
+height:50px;
+padding:5px;
+//вертикальное выравнивание внутри ячейки
+vertical-aligh: top;
+
+}
+
+поменяем цвет ячеек th
+th {
+background-color:#fefecc;
+background-image:url(../image/tel.jpg);
+}
+
+//выделим четные строки другим цветом
+<tr class="blue"><td></td></tr>
+
+tr.blue td {
+background-color:fefecc;
+}
+
+28. CSS и формы. Часть 1
+
+меняем шрифт
+body {
+font: 11px Verdana, sans-serif;
+color:#000;
+}
+
+помещаем form в div для того, чтобы задавать размер формы
+<div id="wrapper">
+	<form></form>
+</div>
+
+/*переносим input вниз, друг над другом
+<p><label></label></p>
+<p><input name="name" id="name"></input></p>
+Т.к. мы перенесли input в др. абзац от label, то он не будет
+функционировать. Чтобы это исправить, прописываем для input
+не только name, но и id
+В <label for="name">
+*/
+#wrapper {
+width:500px;
+}
+
+<p class="question"></p> //делаем жырным вопросы
+
+задаем border и padding для тега fieldset
+fieldset {
+margin:10px;
+padding: 10px;
+border:1px;
+background-color:
+}
+
+textarea {
+border:
+background-color:
+width:480px;
+margin:2px 10px;
+}
+
+.textareaParag
+//что делать если для абзаца уже задан класс?
+//Просто добавить еще один через пробел:
+<p class="question textareaParag"></p>
+
+29. CSS и формы. Часть 2
+
+.input {
+border:
+height:27px;
+line-height:27px; // для IE
+//ставим на фон градиентную картинку
+background-image:url(../image/tel.jpg);
+background-repeat:repeat-x;
+width:270px;
+padding:
+}
+
+в HTML находим input для ввода имени и пароля и применяем этот класс
+
+Чтобы при щелчке внитри inputa у нас происходило изменения бекграунда,
+нужно:
+.input:focus {
+color:
+border:
+background:none; //чтобы не наследовалось с .input
+background-color:fff;
+}
+
+Чтобы при наведении на вопрос (label) у нас менялся курсор, нужно:
+label {
+cursor:pointer; //рука
+}
+
+для body мы прописали размер шрифта и тип, но когда мы пишем в форме input,
+текст у нас отображается по умолчанию. Исправим
+добавим в textarea или в input свойства текста из body
+
+Браузер IE, особенно 7й отображает input не корректно
+Для этого нужно дописывать правило
+.input {
+height:27px;
+line-height:27px; // такую же как и у height
+}
+
+30. Свойство float
+
+float - аналог align
+Добавляем тегу <img src="" id="myImg"> идентификатор
+
+#myImg {
+float:right;
+border:none;
+margin: 20px;
+}
+
+В основном float используется для блоков div
+
+31. Создание простого каркаса на основе float
+
+<div id="wrapper">
+	<div id="header"></div>
+	<div id="sidebar"></div>
+	<div id="content"></div>
+	<div id="footer"></div>
+</div>
+
+#wripper {
+width:800px;
+outline:
+padding:10px;
+margin:0 auto;
+}
+
+#header {
+height:77px;
+backgrond-color:
+margin-bottom:
+}
+
+#sidebar {
+height:77px;
+backgrond-color:
+margin-bottom:12px;
+width:150px;
+float:left;
+}
+
+#content {
+height:77px;
+backgrond-color:
+margin-bottom:12px;
+margin-left:160px;
+width:640px;
+float:right;
+}
+
+#footer {
+height:77px;
+backgrond-color:
+margin-bottom:12px;
+}
+
+32. Очистка обтекания
+
+Добавим еще один sidebar
+
+<div id="wrapper">
+	<div id="header"></div>
+	<div id="sidebarL"></div>
+	<div id="sidebarR"></div>
+	<div id="content"></div>
+	<div class="clear"></div>
+	<div id="footer"></div>
+</div>
+
+#sidebarL {
+height:77px;
+backgrond-color:
+margin-bottom:12px;
+width:150px;
+float:left;
+}
+
+#sidebarR {
+height:77px;
+backgrond-color:
+margin-bottom:12px;
+width:150px;
+float:right;
+}
+
+#content {
+height:77px;
+backgrond-color:
+margin:0  auto 12 auto; //можно так margin: 0 160px 12px 160px;
+width:480px;
+}
+
+наполним контентом sidebarL, sidebarR и content, предварительно
+убрав у них height:77px;
+
+footer не ушел вниз. Чтобы это исправить:
+Нужно создать отдельный блок div с очисткой
+
+.clear {
+clear: left | right | both; // both
+}
+
+Мы увидим новую проблему - блоки стали разными оп рамеру из-за
+количества содержимого текста в них
+
+33. Колонки одной высоты
+
+Способов существует масса. Универсального решения нет
+
+создаем в папке сайта отдельную директорию и поместим туда два файла:
+jquery-1.5.min.js //сама библиотека jquery
+equalHeight.js //плагин
+
+Подключаем jQuery
+<head>
+<script src="js/jquery-1.5.min.js" type="text/javascript"></script>
+<script src="js/equalHeight.js" type="text/javascript"></script>
+</head>
+
+Открываем сам файл equalHeight.js и правим его под себя
+setEqualHeight($("#sidebarL,#sidebarR,#content"));
+перечислим идентификаторы блоков, которые нужно выронвять через запятую
+Теперь все колонки будут одинаковыми по длинне. Единственный недостаток
+этого метода в том, что при отключенном javascriptе это работать не будет
+
+34. Позиционирование. Введение
+
+position: absolute | relative | fixed | static
+
+
+<div id="wrapper">
+	<div id="header"></div>
+	<div id="content">
+		<img src="" width="104" height="104" id="pic">
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+</div>
+
+body {
+background-color:#f6f6f6;
+font:11px Verdana;
+color:
+}
+
+#wripper {
+width:650px;
+margin:30px auto;
+backgrond-color:
+}
+
+#header {
+height:75px;
+background-image:url();
+background-repeat:no-repeat;
+}
+
+#content {
+padding: 20px 30px;
+}
+
+35. Абсолютное позиционирование
+
+добавим изображение в самый верхний левый угол
+
+#pic {
+position: absolute;//картинка как-бы приподнимается над всем контентом
+//не зависит от дугих тегов
+//есть у него еще свойства top | right | left | bottom
+//картинка будет позиционировать относительно окна браузера, а не блока div
+//задаем как минимум 2 координаты - верх и лево
+top:0;
+left:0;
+}
+
+Есть второй момент, когда позиционирование происходит не от окна браузера:
+
+
+<div id="wrapper">
+	<div id="header"></div>
+	<div id="content">
+		<div id="container"><img src="" width="104" height="104" id="pic"></div>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+</div>
+
+#container {
+position: absolute;
+width:300px;
+height:240;
+background-color:
+right:0;
+top:0;
+}
+
+Теперь, т.к. картинка находится уже не в блоке content, а в блоке container,
+то позиционирование происходит от блока div
+Вывод: если элемент с абсолютным позиционирование находится в другом элементе
+с абсолютным позиционированием, то он начинает позиционироваться относительно
+своего родителя
+
+36. Относительное позиционирование relative
+
+<div id="wrapper">
+	<div id="header">
+		<img src="" width="87" height="28" id="butt">
+	</div>
+	<div id="content">
+		<img src="" width="104" height="104" id="pic">
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+</div>
+
+#pic {
+position: relative;// картинка так же преподнялась на основным контентом
+//при таком позиционировании др. теги не могу занивать пространство,
+//которое занимала картинка и позиционируется картинка относительно
+//div, а не окна браузера
+left:50;
+top:120;
+}
+
+Используют relative так:
+
+#header {
+height:75px;
+background-image:url();
+background-repeat:no-repeat;
+position: relative;
+}
+
+#butt {
+position: absolute;
+left:294px;
+top:-14px;
+}
+
+37. Фиксированное позиционирование
+
+На примере боковой кнопки с телефоном
+теперь мы можем сделать эту кнопку как ссылку
+
+<div id="wrapper">
+	<div id="header">
+		<img src="" width="87" height="28" id="butt">
+	</div>
+	<div id="content">
+		<div id="phones">
+			<a href=""><img src="" width="32" height="180" id="pic"></a>
+		</div>
+		<img src="" width="104" height="104" id="pic">
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+</div>
+
+#phones {
+position:fixed;
+width:32px;
+height:180px;
+top:250px;
+left:0;
+}
+
+При фиксированном позиционировании оно всегда происходит от окна браузера,
+в отличии от абсолютного
+
+убираем рамку на картинке:
+
+#phones img {
+border:none;
+}
+
+38. Z-индексы
+
+если вернутся к примеру relative позиционирования, то бывает так, что
+у нас в блоке header размещено несколько картинок:
+
+<div id="wrapper">
+	<div id="header">
+		<img src="" width="106" height="90" id="bird">
+		<img src="" width="87" height="28" id="butt">
+	</div>
+	<div id="content">
+		<div id="phones">
+			<a href=""><img src="" width="32" height="180" id="pic"></a>
+		</div>
+		<img src="" width="104" height="104" id="pic">
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+</div>
+
+#bird {
+position:absolute;
+left:272px;
+top:-3px;
+}
+
+Птица появилась, но хвост ее идет под кнопкой и это просходит потому, что
+<img src="" width="106" height="90" id="bird">
+<img src="" width="87" height="28" id="butt">
+Можно конечно же поменять их местами, но, обычно, делается это по-другому:
+
+Чем выше z-индекс, тем выше будет расположен объект на оси Z
+
+#bird {
+position:absolute;
+left:272px;
+top:-3px;
+z-index:2;
+}
+
+#butt {
+position: absolute;
+left:294px;
+top:-14px;
+z-index:1;
+}
+
+Один и тот же элемент может иметь или свойство position или свойство float.
+Вместе они не могут применяться
+
+39. Видимость элементов
+
+Свойства позволяют спрятать любой элемент страницы
+
+<div id="wrapper">
+	<div id="header">
+		<img src="" width="106" height="90" id="bird">
+		<img src="" width="87" height="28" id="butt">
+	</div>
+	<div id="content">
+		<div id="phones">
+			<a href=""><img src="" width="32" height="180" id="pic"></a>
+		</div>
+		<img src="" width="104" height="104" id="pic">
+		<p></p>
+		<p id="test"></p>
+		<p></p>
+	</div>
+</div>
+
+#test {
+visibility: hidden; //прячет абзац. Но его место остается
+}
+
+второй вариант:
+
+#test {
+display: none; //элемент исчезает полностью из страницы. Но в коде он есть
+}
+
+40. Максимальная и минимальная ширина сайта
+
+Используются на сайта со 100% шириной
+
+<div id="wrapper">
+	<div id="sidebarL"></div>
+	<div id="sidebarR"></div>
+	<div id="content"></div>
+</div>
+
+body {
+background-color:#f6f6f6;
+font:11px Verdana;
+color:
+}
+
+#wrapper {
+margin:30px auto;
+background-color:
+height: 520px;
+min-width:650px; //мин ширина сайта
+max-width:1200px; //макс ширина сайта
+}
+
+#sidebarL {
+width:200px;
+height:500x;
+float:left;
+outline:1px solid #cc0000;
+}
+
+#sidebarR {
+width:200px;
+height:500x;
+float:right;
+outline:1px solid #cc0000;
+}
+
+#content {
+height:500px;
+margin:0 220px;
+outline:1px solid #cc0000;
+}
+
+41. Браузеры
+
+42. Решение проблем с IE
+
+1) добавляем скрыпты в код страниц. JS находится в 
+AutoPlay\Docs\dopmat\CSS course\Browsers\IE6Fix
+2) установка заглушки NoIE6
+
+43. Два способа подключения стилей
+
+1) через внешнюю таблицу стилей в теге <link href=""...>
+2) подключение стилей в тег через атрибут style
+3) стили в html-странице прописываем между тегами style
+4) подключение несколько таблиц стилей
+5) подключаем к внешней таблицы стилей тегом @import url("ps.css");
+	таким способом можно подключать несколько таблиц
+
+44. Наследование ненаследуемых свойств
+
+свойство inherit - значение будет унаследовано от родителя
+
+<div id="wrapper">
+	<div id="header"></div>
+	<div id="content">
+		<p></p>
+		<p id="test"></p>
+		<p></p>
+	</div>
+</div>
+
+Например, id="test" может унаследовать padding от id="content"
+Пропишем в стилях:
+
+#content {
+padding:20px 30px;
+}
+
+#test {
+padding:inherit;
+}
+
+45. Заключение
+
+ContentManagement,part3 CMSimple
