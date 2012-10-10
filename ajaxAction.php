@@ -15,7 +15,7 @@ require_once('connectvars.php');
 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
 	or die('Error connecting to MySQL server.');
-$query = "SELECT * FROM contacts WHERE name LIKE '$search%' ORDER BY id";
+$query = "SELECT * FROM contacts WHERE name LIKE '$search%' OR last_name LIKE '$search%' ORDER BY id";
 $data = mysqli_query($dbc, $query);
 $row = mysqli_fetch_array($data);
 if($row){
