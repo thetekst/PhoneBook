@@ -28,7 +28,7 @@
         <!--statusbar-->
         <div id="status-bar">
         	<div id="status-bar-content">
-            <form action="ajaxAction.php" method="post" name="search-form" id="search-form" enctype="multipart/form-data">
+            <form action="ajaxAction.php" onsubmit="return false;" method="post" name="search-form" id="search-form" enctype="multipart/form-data">
                 <label for="queryName">
                     <input name="queryName" id="queryID" value="Search..." type="text" size="40"
                     		onkeyUp="searchF();"

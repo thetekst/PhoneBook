@@ -2,7 +2,7 @@
 function searchF(){
 //	alert(1);
 	var search = $("#queryID").val();
-	if(search != ''){
+//	if(search != ''){
 		$.ajax({
 			type: "POST",
 			url: "ajaxAction.php",
@@ -12,7 +12,7 @@ function searchF(){
 				$(".container").html(response);
 			}
 		});
-	}
+//	}
 }
 
 function test() {

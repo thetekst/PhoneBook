@@ -6,8 +6,8 @@ if(isset($_POST['search'])) {
 $search = addslashes($search);
 $search = htmlspecialchars($search);
 $search = stripslashes($search);
-if($search == ''){
-  exit("Начните вводить запрос");
+if(empty($search)){
+  $query = "SELECT name, last_name, description, screenshot FROM contacts ORDER BY id";
 }
 
 require_once('appvars.php');
