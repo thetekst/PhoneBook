@@ -28,14 +28,12 @@
         <!--statusbar-->
         <div id="status-bar">
         	<div id="status-bar-content">
-            <form action="ajaxAction.php" onsubmit="return false;" method="post" name="search-form" id="search-form" enctype="multipart/form-data">
-                <label for="queryName">
-                    <input name="queryName" id="queryID" class="radius" value="Search..." type="text" size="40"
+            <form action="" onsubmit="return false;" method="post" name="search-form" id="search-form" enctype="multipart/form-data">
+                
+                    <input name="queryName" id="queryID" value="Search..." type="text"
                     		onkeyUp="searchF();"
-                            onblur="if(this.value=='' || this.value=='Введите имя') this.value='Search...';"
-                            onfocus="if(this.value=='Search...' || this.value=='Введите имя') this.value='';"/> 
-					<button name="go" type="button" onClick="test();">Go</button>
-                </label>
+                            onblur="if(this.value=='') this.value='Search...';"
+                            onfocus="if(this.value=='Search...') this.value='';"/>
             </form>
             <div id="status-bar-commands">
             	<p id="welcome">Welcome, Guest</p>
@@ -52,38 +50,9 @@
 		<!--Start container-->
 		<div class="container">
         
+        <!-- Подгружаем контакты из БД AJAX'ом -->
 			<?php
-			$search = $_POST['search-form'];
-				if(empty($search)){
-					require_once('appvars.php');
-					require_once('connectvars.php');
-					
-					// Connect to the database 
-					$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
-						or die('Error connecting to MySQL server.');
-					
-					$query = "SELECT name, last_name, description, screenshot FROM contacts ORDER BY id";
-					$data = mysqli_query($dbc, $query);
-					
-					  while ($row = mysqli_fetch_array($data)) {
-						// Display the score data
-						echo '<div class="text">';
-						//Контент страницы
-						
-						echo '<img class="img-block" width="43" height="43" src="' . GW_UPLOADPATH . $row['screenshot'] . '" alt="' . $row['name'] . '" />';
-						echo '<p class="block-paragraph">' . "\n";
-						
-						echo '<strong>' . $row['name'] .' ' . $row['last_name'] . '</strong><br/>';
-						echo $row['description'];
-						echo '</p>' . "\n";
-						echo '</div>';
-					  }
-
-			  mysqli_close($dbc);
-			  } else {
-					echo 'форма не пустая';
-				}
-			 
+				require_once('ajaxAction.php');
 			?>
 
         

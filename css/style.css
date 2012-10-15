@@ -42,7 +42,7 @@ header {
 
 form#search-form {
 	float: right;
-	width: 320px;
+	width: 350px;
 }
 
 #pic {
@@ -89,25 +89,21 @@ footer {
 
 /* input */
 input{
-	border:1px solid #aaa;
-	
-  	/*добавить тень, отбрасываемую подсвеченным полем ввода*/
-	/* IE9 -> */
-	border:1px solid #aaa;
-	transition:border linear .2s,box-shadow linear .2s;
-	-moz-transition:border linear .2s,-moz-box-shadow linear .2s;
-	-webkit-transition:border linear .2s,-webkit-box-shadow linear .2s;
+	background: url(../images/search-field.png) no-repeat;
+	border:none;
+	height:20px;
+	padding: 3px 0px 0px 30px;
+	width:170px;
+}
+
+input[type=text]:hover {
+	outline:none; /* удаляем свечение по умолчанию */
+	border:none;
 }
 
 input:focus{
 	outline:none; /* удаляем свечение в рамке*/
-	border-color:#ABADB3;
-	
-	/*добавить тень, отбрасываемую подсвеченным полем ввода*/
-	/* IE9 -> */
-	box-shadow:0 0 8px rgba(255,25,33,.5);
-	-moz-box-shadow:0 0 8px rgba(255,25,33,.5);
-	-webkit-box-shadow:0 0 8px rgba(255,25,33,.5);
+	border:none;
 }
 
 .radius {

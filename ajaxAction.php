@@ -1,8 +1,6 @@
 <?php
-header("Content-type: text/html; charset=utf-8");
-if(isset($_POST['search'])) {
-	$search = $_POST['search'];
-} else echo 'не существует';
+//header("Content-type: text/html; charset=utf-8");
+$search = $_POST['search'];
 $search = addslashes($search);
 $search = htmlspecialchars($search);
 $search = stripslashes($search);
