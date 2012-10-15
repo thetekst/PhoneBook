@@ -94,6 +94,8 @@ input{
 	height:20px;
 	padding: 3px 0px 0px 30px;
 	width:170px;
+	font-weight:bold;
+	color:#a4a3a1;
 }
 
 input[type=text]:hover {

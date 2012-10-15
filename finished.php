@@ -30,17 +30,16 @@
         	<div id="status-bar-content">
             <form action="" onsubmit="return false;" method="post" name="search-form" id="search-form" enctype="multipart/form-data">
                 
-                    <input name="queryName" id="queryID" value="Search..." type="text"
+                    <input name="queryName" id="queryID" value="Type your text here..." type="text"
                     		onkeyUp="searchF();"
-                            onblur="if(this.value=='') this.value='Search...';"
-                            onfocus="if(this.value=='Search...') this.value='';"/>
+                            onblur="if(this.value=='') this.value='Type your text here...';"
+                            onfocus="if(this.value=='Type your text here...') this.value='';"/>
             </form>
             <div id="status-bar-commands">
-            	<p id="welcome">Welcome, Guest</p>
                 <p id="action-bar">
-                <a href="#login" title="Login">Login</a>
-                <a href="#sitemap" title="Sitemap">Sitemap</a>
-                <a href="#license" title="License">License</a>
+                <a href="#login" title="All">All</a>
+                <a href="#sitemap" title="Phone">Phone</a>
+                <a href="#license" title="Facebook">Facebook</a>
                 </p>
             </div>
             </div>
