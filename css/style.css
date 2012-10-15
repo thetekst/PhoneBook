@@ -86,3 +86,36 @@ div.text p {
 footer {
 	background-color:#fff040;
 }
+
+/* input */
+input{
+	border:1px solid #aaa;
+	
+  	/*добавить тень, отбрасываемую подсвеченным полем ввода*/
+	/* IE9 -> */
+	border:1px solid #aaa;
+	transition:border linear .2s,box-shadow linear .2s;
+	-moz-transition:border linear .2s,-moz-box-shadow linear .2s;
+	-webkit-transition:border linear .2s,-webkit-box-shadow linear .2s;
+}
+
+input:focus{
+	outline:none; /* удаляем свечение в рамке*/
+	border-color:#ABADB3;
+	
+	/*добавить тень, отбрасываемую подсвеченным полем ввода*/
+	/* IE9 -> */
+	box-shadow:0 0 8px rgba(255,25,33,.5);
+	-moz-box-shadow:0 0 8px rgba(255,25,33,.5);
+	-webkit-box-shadow:0 0 8px rgba(255,25,33,.5);
+}
+
+.radius {
+	/* Скругление углов*/
+  -moz-border-radius:3px; /* Firefox */
+  -webkit-border-radius:3px; /* Safari, Google Chrome */
+  -khtml-border-radius: 3px; /* KHTML */
+  -o-border-radius: 3px; /* Opera */
+  border-radius:3px; /* CSS3 */
+  behavior: url(PIE-1.0.0/PIE.htc); /* учим IE border-radius */
+}

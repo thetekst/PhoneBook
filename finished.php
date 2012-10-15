@@ -30,7 +30,7 @@
         	<div id="status-bar-content">
             <form action="ajaxAction.php" onsubmit="return false;" method="post" name="search-form" id="search-form" enctype="multipart/form-data">
                 <label for="queryName">
-                    <input name="queryName" id="queryID" value="Search..." type="text" size="40"
+                    <input name="queryName" id="queryID" class="radius" value="Search..." type="text" size="40"
                     		onkeyUp="searchF();"
                             onblur="if(this.value=='' || this.value=='Введите имя') this.value='Search...';"
                             onfocus="if(this.value=='Search...' || this.value=='Введите имя') this.value='';"/> 
