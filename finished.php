@@ -50,10 +50,12 @@
 		<div class="container">
         
         <!-- Подгружаем контакты из БД AJAX'ом -->
-			<?php
-				require_once('ajaxAction.php');
-			?>
-
+		<!--?php require_once('ajaxAction.php'); ?-->
+        <!--end-->
+        
+		<!--read XML with SimpleXML-->
+        <?php require_once('readXML.php'); ?>
+        <!--end read XML-->
         
         </div>
         <!--End container-->
