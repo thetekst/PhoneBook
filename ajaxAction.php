@@ -5,17 +5,9 @@ $search = addslashes($search);
 $search = htmlspecialchars($search);
 $search = stripslashes($search);
 if(empty($search)){
-  $query = "SELECT name, last_name, description, screenshot FROM contacts ORDER BY id";
+  
 }
 
-require_once('appvars.php');
-require_once('connectvars.php');
-
-$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
-	or die('Error connecting to MySQL server.');
-$query = "SELECT * FROM contacts WHERE name LIKE '$search%' OR last_name LIKE '$search%' ORDER BY id";
-$data = mysqli_query($dbc, $query);
-$row = mysqli_fetch_array($data);
 if($row){
 	do {
 	 // Display the score data
@@ -35,5 +27,4 @@ else{
    echo "Нет результатов";
 }
 
-mysqli_close($dbc);
 ?>

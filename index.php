@@ -1,6 +1,6 @@
 <?php
 
-$xmlArr = simplexml_load_file ('people.xml');
+$xmlArr = simplexml_load_file ('xml/people.xml');
 
 $html = '';
 
@@ -14,5 +14,7 @@ foreach ($xmlArr->items->item as $i) {
 				'</div>';
 }
 
+require_once('header.php');
 echo $html;
+require_once('footer.php');
 ?>
