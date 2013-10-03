@@ -40,6 +40,7 @@
                 <a href="#login" title="All">All</a>
                 <a href="#sitemap" title="Phone">Phone</a>
                 <a href="#license" title="Facebook">Facebook</a>
+				<a href="simplexml.php" title="xml">xml</a>
                 </p>
             </div>
             </div>
